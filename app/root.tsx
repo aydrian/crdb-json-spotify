@@ -1,5 +1,6 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
+
+import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
   LiveReload,
@@ -9,11 +10,13 @@ import {
   ScrollRestoration
 } from "@remix-run/react";
 
+import iconHref from "~/components/icons/sprite.svg";
 import styles from "~/tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
+  { as: "image", href: iconHref, rel: "preload", type: "image/svg+xml" },
+  { href: styles, rel: "stylesheet" },
+  ...(cssBundleHref ? [{ href: cssBundleHref, rel: "stylesheet" }] : [])
 ];
 
 export default function App() {
@@ -21,7 +24,7 @@ export default function App() {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
         <Meta />
         <Links />
       </head>
