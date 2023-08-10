@@ -9,3 +9,36 @@ datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id    String @id
+  email String
+  name  String
+
+  tracks TracksForUsers[]
+
+  @@map("users")
+}
+
+model Track {
+  data      Json
+  id        String   @id
+  artistId  String   @map("artist_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  users TracksForUsers[]
+
+  @@map("tracks")
+}
+
+model TracksForUsers {
+  trackId   String   @map("track_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user  User  @relation(fields: [userId], references: [id])
+  track Track @relation(fields: [trackId], references: [id])
+
+  @@id([trackId, userId])
+  @@map("tracks_users")
+}

@@ -32,14 +32,14 @@ export default function Layout() {
     ? user.name.split(" ")
     : ["Spotify", "User"];
   return (
-    <div className="flex h-screen flex-col gap-2 bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-4">
-      <header className="rounded-md bg-[#f5f5f5] p-4">
+    <div className="flex h-screen flex-col gap-4 bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-4">
+      <header className="rounded-md bg-[#f5f5f5] p-4 shadow-md">
         <div className="container mx-auto flex flex-col flex-wrap items-center md:flex-row">
           <div className="md:w-2/6">Company Logo</div>
           <div className="flex items-center md:w-2/6 md:items-center md:justify-center">
             <Link
               className="font-poppins w-auto fill-current text-3xl font-bold"
-              to="/admin/dashboard"
+              to="/home"
             >
               CRDB JSON Spotify
             </Link>
@@ -70,6 +70,10 @@ export default function Layout() {
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
+                    <Icon className="mr-2 h-4 w-4" name="heart" />
+                    <Link to="/likes">Liked Tracks</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
                     <Icon className="mr-2 h-4 w-4" name="log-out" />
                     <Link to="/logout">Log out</Link>
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
@@ -83,7 +87,7 @@ export default function Layout() {
       <main className="grow bg-transparent">
         <Outlet />
       </main>
-      <footer className="rounded-md bg-black">
+      <footer className="rounded-md bg-black shadow-md">
         <ul className="mx-auto flex max-w-7xl items-center justify-between p-4 text-sm font-bold text-white">
           <li>
             <a

@@ -1,7 +1,7 @@
 import { Authenticator } from "remix-auth";
 import { type Session, SpotifyStrategy } from "remix-auth-spotify";
 
-// import { prisma } from "~/utils/db.server.ts";
+import { prisma } from "~/utils/db.server.ts";
 import { sessionStorage } from "~/utils/session.server.ts";
 
 import env from "./env.server.ts";
@@ -19,7 +19,19 @@ export const spotifyStrategy = new SpotifyStrategy(
     sessionStorage
   },
   async ({ accessToken, extraParams, profile, refreshToken }) => {
-    // TODO persist user to database
+    // Upsert user to database
+    await prisma.user.upsert({
+      create: {
+        email: profile.emails[0].value,
+        id: profile.id,
+        name: profile.displayName
+      },
+      update: {
+        email: profile.emails[0].value,
+        name: profile.displayName
+      },
+      where: { id: profile.id }
+    });
     return {
       accessToken,
       expiresAt: Date.now() + extraParams.expiresIn * 1000,
