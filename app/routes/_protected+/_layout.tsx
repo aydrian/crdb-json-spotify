@@ -35,14 +35,16 @@ export default function Layout() {
     <div className="flex h-screen flex-col gap-4 bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-4">
       <header className="rounded-md bg-[#f5f5f5] p-4 shadow-md">
         <div className="container mx-auto flex flex-col flex-wrap items-center md:flex-row">
-          <div className="md:w-2/6">Company Logo</div>
-          <div className="flex items-center md:w-2/6 md:items-center md:justify-center">
+          <div className="flex items-center md:w-2/6 md:items-center md:justify-start">
             <Link
               className="font-poppins w-auto fill-current text-3xl font-bold"
               to="/home"
             >
               CRDB JSON Spotify
             </Link>
+          </div>
+          <div className="flex items-center justify-center md:w-2/6">
+            <Icon className="h-16" name="cockroach-hd" />
           </div>
           <nav className="ml-5 inline-flex h-full items-center md:ml-0 md:w-2/6 md:justify-end">
             <div className="flex items-center gap-1">
