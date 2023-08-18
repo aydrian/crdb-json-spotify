@@ -64,10 +64,8 @@ export async function action({ request }: ActionArgs) {
   }
   const formData = await request.formData();
   const submission = parse(formData, {
-    acceptMultipleErrors: () => true,
     schema: LikeSchema
   });
-  console.log({ submission });
   if (!submission.value) {
     return json(
       {

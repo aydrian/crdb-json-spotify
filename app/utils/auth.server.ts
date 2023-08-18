@@ -7,7 +7,7 @@ import { sessionStorage } from "~/utils/session.server.ts";
 import env from "./env.server.ts";
 
 export const DEFAULT_FAILURE_REDIRECT = "/";
-export const DEFAULT_SUCCESS_REDIRECT = "/home";
+export const DEFAULT_SUCCESS_REDIRECT = "/likes";
 
 const scopes = ["user-read-email"].join(" ");
 export const spotifyStrategy = new SpotifyStrategy(

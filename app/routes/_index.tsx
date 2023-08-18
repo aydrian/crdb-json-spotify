@@ -58,9 +58,23 @@ export default function Index() {
   return (
     <main className="flex h-screen flex-col justify-evenly bg-[#f5f5f5] md:flex-row">
       <div className="flex basis-1/4 flex-col items-center justify-center gap-2 md:basis-1/2">
-        <h1>CRDB JSON Spotify</h1>
+        <Icon className="h-16 w-16 md:h-52 md:w-52" name="cockroach-hd" />
+        <h1 className="w-auto fill-current text-2xl font-bold md:text-3xl">
+          🎵 CRDB JSON Spotify 🎵
+        </h1>
+        <p>
+          Store JSON in{" "}
+          <a
+            className="text-purple-950 hover:underline"
+            href="https://cockroachlabs.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            CockroachDB
+          </a>
+        </p>
       </div>
-      <div className="flex basis-3/4 items-start justify-center bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600  pt-12 md:basis-1/2 md:items-center md:pt-0">
+      <div className="flex basis-3/4 items-start justify-center bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-6 md:basis-1/2 md:items-center md:pt-0">
         <Card className="shadow-md">
           <CardHeader>
             <CardTitle>Login</CardTitle>
@@ -81,7 +95,7 @@ export default function Index() {
       </div>
       <a
         className="absolute bottom-4 right-4"
-        href="https://github.com/aydrian/"
+        href="https://github.com/aydrian/crdb-json-spotify"
         rel="noreferrer"
         target="_blank"
       >

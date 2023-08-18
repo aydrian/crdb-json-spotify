@@ -32,22 +32,19 @@ export default function Layout() {
     ? user.name.split(" ")
     : ["Spotify", "User"];
   return (
-    <div className="flex h-screen flex-col gap-4 bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-4">
+    <div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-green-300 from-45% via-blue-500 to-purple-600 p-4">
       <header className="rounded-md bg-[#f5f5f5] p-4 shadow-md">
         <div className="container mx-auto flex flex-col flex-wrap items-center md:flex-row">
-          <div className="flex items-center md:w-2/6 md:items-center md:justify-start">
-            <Link
-              className="font-poppins w-auto fill-current text-3xl font-bold"
-              to="/home"
-            >
-              CRDB JSON Spotify
-            </Link>
+          <div className="flex items-center md:w-1/6 md:items-center md:justify-start">
+            <Icon className="h-16 w-16" name="cockroach-hd" />
           </div>
-          <div className="flex items-center justify-center md:w-2/6">
-            <Icon className="h-16" name="cockroach-hd" />
+          <div className="flex items-center justify-center md:w-4/6">
+            <h1 className="w-auto fill-current text-3xl font-bold">
+              🎵 CRDB JSON Spotify 🎵
+            </h1>
           </div>
-          <nav className="ml-5 inline-flex h-full items-center md:ml-0 md:w-2/6 md:justify-end">
-            <div className="flex items-center gap-1">
+          <nav className="ml-5 inline-flex h-full items-center md:ml-0 md:w-1/6 md:justify-end">
+            <div className="flex items-center justify-end gap-1">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="relative h-8 w-8 rounded-full">
@@ -102,7 +99,7 @@ export default function Layout() {
           </li>
           <li>
             <a
-              href="https://github.com/aydrian/"
+              href="https://github.com/aydrian/crdb-json-spotify"
               rel="noreferrer"
               target="_blank"
             >
